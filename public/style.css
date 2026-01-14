@@ -1,1 +1,170 @@
 
+/* ==========================
+   Alap stílusok
+========================== */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background: #0b0b0b;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.chat-container {
+  width: 450px;
+  max-width: 95%;
+  background: linear-gradient(160deg, #1a0b33 0%, #0b0b0b 100%);
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 0 50px rgba(138, 43, 226, 0.8);
+  border: 2px solid rgba(138, 43, 226, 0.5);
+  animation: glowBorder 2s ease-in-out infinite alternate;
+}
+
+/* ==========================
+   Animációk
+========================== */
+@keyframes glowBorder {
+  0% { box-shadow: 0 0 20px #9b59b6, 0 0 40px #d2a6ff; }
+  100% { box-shadow: 0 0 40px #d2a6ff, 0 0 80px #9b59b6; }
+}
+
+@keyframes messageEnter {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================
+   Üzenetek
+========================== */
+.messages {
+  height: 350px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 12px;
+  scroll-behavior: smooth;
+}
+
+.message {
+  padding: 12px 18px;
+  border-radius: 15px;
+  background: rgba(138, 43, 226, 0.15);
+  color: #e0c3fc;
+  font-weight: 600;
+  text-shadow: 0 0 8px #9b59b6;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+  animation: messageEnter 0.4s ease forwards;
+  opacity: 0;
+  word-wrap: break-word;
+}
+
+/* ==========================
+   Űrlap
+========================== */
+form {
+  display: flex;
+  flex-direction: column; /* gomb alá kerül */
+  gap: 10px;
+  width: 100%;
+}
+
+
+
+input[type="text"] {
+  flex: 1;            /* kitölti az összes rendelkezésre álló helyet */
+  padding: 12px 18px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  width: 100%;
+  outline: none;
+  background: #1a0b33;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.7);
+  transition: 0.3s all;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 20px #d2a6ff, 0 0 40px #9b59b6;
+  background: #250b4a;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #9b59b6, #d2a6ff);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #9b59b6, 0 0 20px #d2a6ff;
+  transition: 0.3s all;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #d2a6ff, 0 0 50px #9b59b6;
+}
+
+/* ==========================
+   Scrollbar neon stílus
+========================== */
+.messages::-webkit-scrollbar {
+  width: 10px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: #0b0b0b;
+  border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: #9b59b6;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #d2a6ff;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+  background: #d2a6ff;
+}
+
+/* ==========================
+   Reszponzív
+========================== */
+@media (max-width: 500px) {
+  .chat-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  input[type="text"], button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .messages {
+    height: 280px;
+  }
+}
+
+
+input {
+  outline: none;
+  padding: 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
+}
